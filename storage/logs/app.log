@@ -1,2 +1,13 @@
 [2024-06-22 21:56:35.245]	local.info	gin-web/main.go:16	log init success!
 [2024-06-22 22:00:53.869]	local.info	gin-web/main.go:16	log init success!
+[2024-06-22 23:07:09.708]	local.info	gin-web/main.go:16	log init success!
+[2024-06-22 23:07:09.713]	local.error	bootstrap/db.go:49	mysql connect failed, err:	{"err": "Error 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)"}
+[2024-06-22 23:08:50.671]	local.info	gin-web/main.go:16	log init success!
+[2024-06-22 23:08:50.674]	local.error	bootstrap/db.go:49	mysql connect failed, err:	{"err": "Error 1049 (42000): Unknown database 'gin-web1'"}
+[2024-06-22 23:09:02.881]	local.info	gin-web/main.go:16	log init success!
+[2024-06-22 23:19:15.456]	local.info	gin-web/main.go:16	log init success!
+[2024-06-22 23:19:15.458]	local.info	bootstrap/db.go:56	start to auto migrate models
+[2024-06-22 23:20:03.688]	local.info	gin-web/main.go:16	log init success!
+[2024-06-22 23:20:03.690]	local.info	bootstrap/db.go:56	start to auto migrate models
+[2024-06-22 23:20:26.807]	local.info	gin-web/main.go:16	log init success!
+[2024-06-22 23:20:26.809]	local.info	bootstrap/db.go:56	start to auto migrate models
