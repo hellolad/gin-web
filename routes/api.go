@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"gin-web/app/controllers/app"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -13,8 +14,6 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 }
 
 func setUserGroupRoutes(router *gin.RouterGroup) {
-	group := router.Group("/user")
-	group.GET("/ping1", func(c *gin.Context) {
-		c.String(http.StatusOK, "pong1")
-	})
+	group := router.Group("/auth")
+	group.POST("/register", app.Register)
 }
