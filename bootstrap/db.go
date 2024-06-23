@@ -85,23 +85,25 @@ func getGormLogger() logger.Interface {
 
 // 自定义 gorm Writer
 func getGormLogWriter() logger.Writer {
-	var writer io.Writer
+	var writers []io.Writer
+
+	// 总是包含标准输出，以实现在控制台同时输出日志
+	writers = append(writers, os.Stdout)
 
 	// 是否启用日志文件
 	if global.App.Config.Database.EnableFileLogWriter {
 		// 自定义 Writer
-		writer = &lumberjack.Logger{
+		fileWriter := &lumberjack.Logger{
 			Filename:   global.App.Config.Log.RootDir + "/" + global.App.Config.Database.LogFilename,
 			MaxSize:    global.App.Config.Log.MaxSize,
 			MaxBackups: global.App.Config.Log.MaxBackups,
 			MaxAge:     global.App.Config.Log.MaxAge,
 			Compress:   global.App.Config.Log.Compress,
 		}
-	} else {
-		// 默认 Writer
-		writer = os.Stdout
+		writers = append(writers, fileWriter)
 	}
-	return log.New(writer, "\r\n", log.LstdFlags)
+	multiWriter := io.MultiWriter(writers...)
+	return log.New(multiWriter, "\r\n", log.LstdFlags)
 }
 
 // 数据库表初始化
