@@ -22,5 +22,6 @@ func setUserGroupRoutes(router *gin.RouterGroup) {
 	authRouter := group.Group("").Use(middleware.JWTAuth(services.AppGuardName))
 	{
 		authRouter.GET("/info", app.Info)
+		authRouter.GET("/logout", app.Logout)
 	}
 }
