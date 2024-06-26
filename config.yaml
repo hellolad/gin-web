@@ -27,7 +27,7 @@ jwt:
   secret: 3Bde3BGEbYqtqyEUzW3ry8jKFcaPH17fRmTmqE7MDr05Lwj95uruRKrrkb44TJ4s
   jwt_ttl: 43200
   jwt_blacklist_grace_period: 10
-  refresh_grace_period: 43180
+  refresh_grace_period: 1800
 log:
   level: info # 日志等级
   root_dir: ./storage/logs # 日志根目录
